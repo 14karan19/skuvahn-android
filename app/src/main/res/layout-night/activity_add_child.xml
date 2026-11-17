@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"
+        android:gravity="top"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@color/light_blue"
+            android:gravity="center|start"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_12sdp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_back" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_minus2sdp"
+                android:fontFamily="@font/plexsans_medium"
+                android:text="@string/add_child"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16ssp" />
+
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/_16sdp">
+
+                <!-- PROFILE IMAGE -->
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_24sdp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgProfile"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:src="@drawable/ic_user_placeholder"
+                        app:civ_border_color="@color/grey_300"
+                        app:civ_border_width="1dp" />
+
+                    <ImageView
+                        android:id="@+id/btnPickImage"
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_28sdp"
+                        android:layout_gravity="bottom|end"
+                        android:background="@drawable/bg_circle_theme"
+                        android:padding="@dimen/_6sdp"
+                        android:src="@drawable/ic_camera"
+                        app:tint="@color/white" />
+                </FrameLayout>
+
+                <!-- FULL NAME -->
+                <EditText
+                    android:id="@+id/etFullName"
+                    style="@style/field_label"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
+                    android:hint="@string/full_name_hint"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/darkest_gray" />
+
+                <TextView
+                    android:id="@+id/tvErrorName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:maxLines="2"
+                    android:text="Please enter full name"
+                    android:textColor="@color/red_error"
+                    android:textSize="@dimen/_8ssp"
+                    android:visibility="gone" />
+
+                <!-- Class -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/selectClassLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:outlineAmbientShadowColor="@color/light_gray"
+                    android:outlineSpotShadowColor="@color/light_gray"
+                    android:shadowColor="@color/light_gray"
+                    app:cardBackgroundColor="@color/light_gray"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:cardElevation="@dimen/_6sdp"
+                    tools:targetApi="p">
+
+                    <LinearLayout
+                        android:id="@+id/selectClass"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/tvSelectedClass"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|center"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_minus2sdp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/plexsans_medium"
+                            android:text="@string/select_class"
+                            android:textColor="@color/darkest_gray"
+                            android:textSize="@dimen/_10ssp" />
+
+                        <ImageView
+                            android:layout_width="@dimen/_16sdp"
+                            android:layout_height="@dimen/_16sdp"
+                            android:layout_gravity="end|center"
+                            android:layout_marginEnd="@dimen/_16sdp"
+                            android:src="@drawable/ic_rounded_dropdown"
+                            app:tint="@color/darkest_gray" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/selectSectionLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:outlineAmbientShadowColor="@color/light_gray"
+                    android:outlineSpotShadowColor="@color/light_gray"
+                    android:shadowColor="@color/light_gray"
+                    app:cardBackgroundColor="@color/light_gray"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:cardElevation="@dimen/_6sdp"
+                    tools:targetApi="p">
+
+                    <LinearLayout
+                        android:id="@+id/selectSection"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/tvSelectedSection"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start|center"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_minus2sdp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/plexsans_medium"
+                            android:text="@string/select_grade"
+                            android:textColor="@color/darkest_gray"
+                            android:textSize="@dimen/_10ssp" />
+
+                        <ImageView
+                            android:layout_width="@dimen/_16sdp"
+                            android:layout_height="@dimen/_16sdp"
+                            android:layout_gravity="end|center"
+                            android:layout_marginEnd="@dimen/_16sdp"
+                            android:src="@drawable/ic_rounded_dropdown"
+                            app:tint="@color/darkest_gray" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- ADDRESS 1 -->
+                <TextView
+                    android:id="@+id/etDob"
+                    style="@style/field_label"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:hint="@string/dob"
+                    android:maxLines="1"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/darkest_gray" />
+
+                <TextView
+                    android:id="@+id/tvErrorDob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:maxLines="1"
+                    android:text="Please select DOB"
+                    android:textColor="@color/red_error"
+                    android:textSize="@dimen/_8ssp"
+                    android:visibility="gone" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/selectSchoolLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:outlineAmbientShadowColor="@color/light_gray"
+                    android:outlineSpotShadowColor="@color/light_gray"
+                    android:shadowColor="@color/light_gray"
+                    app:cardBackgroundColor="@color/light_gray"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:cardElevation="@dimen/_6sdp"
+                    tools:targetApi="p">
+
+                    <LinearLayout
+                        android:id="@+id/selectSchool"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/actvSchool"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:completionThreshold="0"
+                            android:dropDownHeight="wrap_content"
+                            android:dropDownVerticalOffset="4dp"
+                            android:fontFamily="@font/plexsans_medium"
+                            android:gravity="center_vertical"
+                            android:hint="@string/select_school"
+                            android:imeOptions="actionDone"
+                            android:inputType="text"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/darkest_gray"
+                            android:textSize="@dimen/_10ssp" />
+
+                        <ImageView
+                            android:layout_width="@dimen/_16sdp"
+                            android:layout_height="@dimen/_16sdp"
+                            android:layout_gravity="end|center"
+                            android:layout_marginEnd="@dimen/_16sdp"
+                            android:src="@drawable/ic_rounded_dropdown"
+                            app:tint="@color/darkest_gray" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Class -->
+                <EditText
+                    android:id="@+id/etContactName"
+                    style="@style/field_label"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
+                    android:hint="@string/emergency_contact_name"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/darkest_gray" />
+
+                <TextView
+                    android:id="@+id/tvErrorContactName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:maxLines="2"
+                    android:text="Please enter contact name"
+                    android:textColor="@color/red_error"
+                    android:textSize="@dimen/_8ssp"
+                    android:visibility="gone" />
+
+                <!-- PHONE -->
+                <EditText
+                    android:id="@+id/etContactNumber"
+                    style="@style/field_label"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:hint="@string/emergency_contact_number"
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/darkest_gray" />
+
+                <TextView
+                    android:id="@+id/tvErrorContactNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:maxLines="2"
+                    android:text="Please enter contact number"
+                    android:textColor="@color/red_error"
+                    android:textSize="@dimen/_8ssp"
+                    android:visibility="gone" />
+
+                <!-- SUBMIT -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvSubmit"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_18sdp"
+                    app:cardBackgroundColor="@color/theme"
+                    app:cardCornerRadius="@dimen/_8sdp">
+
+                    <TextView
+                        android:id="@+id/btnSubmit"
+                        style="@style/button_theme"
+                        android:text="Add Child" />
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- MAP -->
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- CENTER PIN -->
+        <ImageView
+            android:id="@+id/ivPin"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:src="@android:drawable/ic_menu_mylocation"
+            app:tint="@color/red_error" />
+
+        <LinearLayout
+            android:id="@+id/searchLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/etSearch"
+                style="@style/field_label_c"
+                android:layout_height="@dimen/_34sdp"
+                android:layout_weight="1"
+                android:drawableEnd="@drawable/ic_search"
+                android:hint="Search for area, street name..."
+                android:imeOptions="actionSearch"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black" />
+
+        </LinearLayout>
+
+        <!-- SAVE BUTTON -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvSave"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_36sdp"
+            android:layout_gravity="bottom"
+            android:layout_marginHorizontal="@dimen/_24sdp"
+            android:layout_marginVertical="@dimen/_24sdp"
+            app:cardBackgroundColor="@color/theme"
+            app:cardCornerRadius="@dimen/_6sdp"
+            app:cardElevation="2dp">
+
+            <TextView
+                android:id="@+id/btnSave"
+                style="@style/button_theme"
+                android:layout_height="@dimen/_36sdp"
+                android:gravity="center"
+                android:text="Save Address"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

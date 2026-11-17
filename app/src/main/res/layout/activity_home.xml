@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_blue">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".MainActivity">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/bannerViewPager"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_240sdp" />
+
+                    <LinearLayout
+                        android:id="@+id/layoutDots"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:gravity="center"
+                        android:orientation="horizontal" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="@dimen/_16sdp">
+
+                        <TextView
+                            android:id="@+id/tvGreeting"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosans_bold"
+                            android:text="Good Morning, Karan"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/_18ssp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvChildContext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosans_medium"
+                            android:text="Where is your child going today?"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="@dimen/_13ssp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_16sdp"
+                        android:weightSum="4">
+
+                        <!-- ITEM -->
+                        <LinearLayout
+                            android:id="@+id/layoutBookings"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_card"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_4sdp">
+
+                            <ImageView
+                                android:layout_width="@dimen/_48sdp"
+                                android:layout_height="@dimen/_48sdp"
+                                android:padding="@dimen/_10sdp"
+                                android:src="@drawable/ic_book_van" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosans_medium"
+                                android:text="Bookings"
+                                android:textColor="@color/text_primary"
+                                android:textSize="@dimen/_10ssp" />
+                        </LinearLayout>
+
+                        <!-- Repeat same for other 3 items -->
+                        <!-- CHILDREN -->
+                        <LinearLayout
+                            android:id="@+id/layoutChildren"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_4sdp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_card"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_4sdp">
+
+                            <ImageView
+                                android:layout_width="@dimen/_48sdp"
+                                android:layout_height="@dimen/_48sdp"
+                                android:padding="@dimen/_10sdp"
+                                android:src="@drawable/ic_child" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosans_medium"
+                                android:text="Children"
+                                android:textColor="@color/text_primary"
+                                android:textSize="@dimen/_10ssp" />
+                        </LinearLayout>
+
+                        <!-- ADDRESS -->
+                        <LinearLayout
+                            android:id="@+id/layoutAddress"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_4sdp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_card"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_4sdp">
+
+                            <ImageView
+                                android:layout_width="@dimen/_48sdp"
+                                android:layout_height="@dimen/_48sdp"
+                                android:padding="@dimen/_10sdp"
+                                android:src="@drawable/ic_address" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosans_medium"
+                                android:text="Address"
+                                android:textColor="@color/text_primary"
+                                android:textSize="@dimen/_10ssp" />
+                        </LinearLayout>
+
+                        <!-- PROFILE -->
+                        <LinearLayout
+                            android:id="@+id/layoutProfile"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_card"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_4sdp">
+
+                            <ImageView
+                                android:layout_width="@dimen/_48sdp"
+                                android:layout_height="@dimen/_48sdp"
+                                android:padding="@dimen/_10sdp"
+                                android:src="@drawable/ic_person" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/notosans_medium"
+                                android:text="Profile"
+                                android:textColor="@color/text_primary"
+                                android:textSize="@dimen/_10ssp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layoutActiveBookingContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_16sdp"
+                            android:fontFamily="@font/notosans_bold"
+                            android:text="Active Rides"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/_14ssp"
+                            android:textStyle="bold" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvActiveBookings"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false"
+                            android:paddingHorizontal="@dimen/_16sdp" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnBookRide"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_52sdp"
+                        android:layout_marginHorizontal="@dimen/_16sdp"
+                        android:layout_marginVertical="@dimen/_16sdp"
+                        android:background="@drawable/bg_ripple"
+                        android:fontFamily="@font/notosans_bold"
+                        android:text="Book a Ride"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_16sdp"
+                        android:visibility="gone"
+                        android:layout_marginBottom="@dimen/_24sdp"
+                        android:background="@drawable/bg_card"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_16sdp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosans_bold"
+                            android:text="Subscription Plans"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/notosans_medium"
+                            android:text="Save more with monthly plans"
+                            android:textColor="@color/text_secondary" />
+
+                        <Button
+                            android:id="@+id/btnViewPlans"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:background="@drawable/bg_ripple"
+                            android:fontFamily="@font/notosans_bold"
+                            android:text="View Plans"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

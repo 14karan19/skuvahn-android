@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rootLayout"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@color/light_blue"
+            android:gravity="center|start"
+            android:orientation="horizontal">
+
+           <LinearLayout
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                <ImageView
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_12sdp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_back" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_minus2sdp"
+                android:fontFamily="@font/plexsans_medium"
+                android:text="@string/profile"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16ssp" />
+
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/_16sdp">
+
+                <!-- PROFILE IMAGE -->
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_24sdp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgProfile"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:src="@drawable/ic_user_placeholder"
+                        app:civ_border_color="@color/grey_300"
+                        app:civ_border_width="1dp" />
+
+                    <ImageView
+                        android:id="@+id/btnPickImage"
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_28sdp"
+                        android:layout_gravity="bottom|end"
+                        android:background="@drawable/bg_circle_theme"
+                        android:padding="@dimen/_6sdp"
+                        android:src="@drawable/ic_camera"
+                        app:tint="@color/white" />
+                </FrameLayout>
+
+                <!-- FULL NAME -->
+                <EditText
+                    android:id="@+id/etFullName"
+                    style="@style/field_label"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:hint="@string/full_name_hint"
+                    android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz "
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/darkest_gray" />
+
+                <TextView
+                    android:id="@+id/tvErrorName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:maxLines="2"
+                    android:text="Please enter full name"
+                    android:textColor="@color/red_error"
+                    android:textSize="@dimen/_8ssp"
+                    android:visibility="gone" />
+
+
+                <!-- EMAIL -->
+                <EditText
+                    android:id="@+id/etEmail"
+                    style="@style/field_label"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:hint="@string/email_optional_hint"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/darkest_gray" />
+
+                <TextView
+                    android:id="@+id/tvErrorEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:maxLines="2"
+                    android:text="Please enter your email"
+                    android:textColor="@color/red_error"
+                    android:textSize="@dimen/_8ssp"
+                    android:visibility="gone" />
+
+                <!-- PHONE -->
+                <TextView
+                    android:id="@+id/tvPhone"
+                    style="@style/field_label"
+                    android:layout_marginHorizontal="@dimen/_18sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:enabled="false"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/darkest_gray" />
+
+                <!-- SUBMIT -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cvSubmit"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_margin="@dimen/_18sdp"
+                    app:cardBackgroundColor="@color/theme"
+                    app:cardCornerRadius="@dimen/_8sdp">
+
+                    <TextView
+                        android:id="@+id/btnSubmit"
+                        style="@style/button_theme"
+                        android:text="Save Profile" />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tvDeleteAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    android:layout_marginVertical="@dimen/_12sdp"
+                    android:fontFamily="@font/plexsans_semibold"
+                    android:text="@string/delete_account"
+                    android:textColor="@color/red_error"
+                    android:textSize="@dimen/_12sdp" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</layout>
